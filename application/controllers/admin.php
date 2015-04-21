@@ -36,6 +36,10 @@ class Admin extends CI_Controller {
         redirect('admin');
     }
 
+    function deletepas($id){
+        $this->m_admin->delpas($id);
+        redirect('admin');
+    }
 
 /*-------GLOBAL REKAM PAGE------------------*/
     /* Fungsi halaman rekam*/
@@ -60,6 +64,11 @@ class Admin extends CI_Controller {
         $jenisbarang = $this->input->post('jenisbarang');
 
         $this->m_admin->addobat($kodebarang, $namabarang, $jenisbarang);
+        redirect('admin/obat');
+    }
+
+    function deleteob($id){
+        $this->m_admin->delob($id);
         redirect('admin/obat');
     }
 

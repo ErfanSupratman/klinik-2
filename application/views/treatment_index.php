@@ -113,12 +113,12 @@
             <span class="icon-thumbnail "><i class="fa fa-medkit"></i></span>
           </li>
 
-          <li class="">
-            <a href="<?php echo site_url();?>/admin/user" class="detailed">
+          <!--<li class="">
+            <a href="<?php //echo site_url();?>/admin/user" class="detailed">
             <span class="title">USER</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-users"></i></span>
-          </li>
+          </li>-->
 
         </ul>
         <div class="clearfix"></div>

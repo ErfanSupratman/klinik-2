@@ -93,7 +93,7 @@
           </li>
 
           <li class="">
-            <a href="<?php echo site_url();?>/admin/rekam" class="detailed">
+            <a href="<?php echo site_url();?>/admin/rekam?>" class="detailed">
               <span class="title">REK. MEDIS</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-stethoscope"></i></span>
@@ -114,12 +114,12 @@
             <span class="icon-thumbnail bg-success"><i class="fa fa-medkit"></i></span>
           </li>
 
-          <li class="">
-            <a href="<?php echo site_url();?>/admin/user" class="detailed">
+          <!--<li class="">
+            <a href="<?php //echo site_url();?>/admin/user" class="detailed">
             <span class="title">USER</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-users"></i></span>
-          </li>
+          </li>-->
 
         </ul>
         <div class="clearfix"></div>
@@ -325,9 +325,11 @@
                   </thead>
                   <tbody>
                     <?php if( !empty($listobat )){
-                        foreach($listobat as $listob){?>
+                      $i = 0;
+                        foreach($listobat as $listob){
+                          $i=$i+1 ?>
                     <tr class="gradeA">
-                      <td class="center"><?php echo $listob['IDOBAT'] ?></td>
+                      <td class="center"><?php echo $i ?></td>
                       <td class="center"><?php echo $listob['KODEOBAT'] ?></td>
                       <td class="center"><?php echo $listob['JENIS'] ?></td>
                       <td><?php echo $listob['NAMAOBAT'] ?></td>
@@ -335,7 +337,7 @@
                         <div class="btn-group btn-group-xs">
                         <button type="button" class="btn btn-complete"><i class="fa fa-search"></i></button>
                         <button type="button" class="btn btn-success"><i class="fa fa-pencil"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                        <a href="<?php echo site_url().'/admin/deleteob/'.$listob['IDOBAT'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></button>
                         </td>
                     </tr>
                     <?php } }
@@ -373,7 +375,14 @@
     </div>
     <!-- END PAGE CONTAINER -->
       
-    
+    <script>
+      function delconfirm(){
+        job=confirm("Apakah anda yakin ingin menghapus data ini?");
+        if(job!=true){
+          return false;
+        }
+      }
+      </script>
     <!-- BEGIN VENDOR JS -->
     <script src="<?php echo base_url('assets');?>/plugins/pace/pace.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url('assets');?>/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>

@@ -21,6 +21,11 @@ class M_admin extends CI_Controller {
     	$this->db->insert('pasien');
     }
 
+    function delpas($id){
+        $this->db->where('IDPASIEN', $id);
+        $this->db->delete('pasien');
+    }
+
 /*--OBAT MODAL--*/
     function getobat(){
         $query = $this->db->get('obat');
@@ -33,6 +38,11 @@ class M_admin extends CI_Controller {
         $this->db->set('JENIS',$jenisbarang);
         $this->db->insert('obat');
 
+    }
+
+    function delob($id){
+        $this->db->where('IDOBAT', $id);
+        $this->db->delete('obat');
     }
 
 

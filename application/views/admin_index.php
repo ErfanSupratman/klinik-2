@@ -330,6 +330,8 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- END MODAL STICK UP  -->
+
+        
         <!-- START PAGE CONTENT -->
         <div class="content">
           <!-- START JUMBOTRON -->
@@ -400,7 +402,7 @@
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
                   <thead>
                     <tr>
-                        <th class="center" style="width:2%">ID</th>
+                        <th class="center" style="width:2%">No</th>
                         <th class="center" style="width:20%">Nama Lengkap</th>
                         <th class="center" style="width:2%">JK</th>
                         <th class="center" style="width:45%">Alamat Asal</th>
@@ -412,9 +414,11 @@
                   </thead>
                   <tbody>
                     <?php if( !empty($listpasien )){
+                      $i = 0;
                         foreach($listpasien as $listpas){?>
+                        <?php $i=$i+1?>
                     <tr class="gradeA">
-                      <td class="center"><?php echo $listpas['IDPASIEN'] ?></td>
+                      <td class="center"><?php echo $i; ?></td>
                       <td class="center"><?php echo $listpas['NAMAPASIEN'] ?></td>
                       <td class="center"><?php echo $listpas['JENISKELAMIN'] ?></td>
                       <td class="center"><?php echo $listpas['ALAMATPASIEN'] ?></td>
@@ -423,9 +427,9 @@
                       <td><?php echo $listpas['BBMPASIEN'] ?></td>
                         <td class="center">
                         <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-complete"><i class="fa fa-search"></i></button>
-                        <button type="button" class="btn btn-success"><i class="fa fa-pencil"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                        <a href="" class="btn btn-complete"><i class="fa fa-search"></i></a>
+                        <a class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                        <a href="<?php echo site_url().'/admin/deletepas/'.$listpas['IDPASIEN'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>
                     <?php } }
@@ -463,6 +467,17 @@
     </div>
     <!-- END PAGE CONTAINER -->
       
+
+      <!--SCRIPT-->
+      <script>
+      function delconfirm(){
+        job=confirm("Apakah anda yakin ingin menghapus data ini?");
+        if(job!=true){
+          return false;
+        }
+      }
+      </script>
+      <!--SCRIPT-->
     
     <!-- BEGIN VENDOR JS -->
     <script src="<?php echo base_url('assets');?>/plugins/pace/pace.min.js" type="text/javascript"></script>
