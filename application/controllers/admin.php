@@ -40,32 +40,51 @@ class Admin extends CI_Controller {
 /*-------GLOBAL REKAM PAGE------------------*/
     /* Fungsi halaman rekam*/
     function rekam(){
-        $this->load->view('rekam_index');
+        $data['page'] = "Rekam Medis - Derma Clinic";
+        $this->load->view('rekam_index', $data);
     }
 
 
 /*-------GLOBAL OBAT PAGE------------------*/
     /* Fungsi halaman obat*/
     function obat(){
-        $this->load->view('obat_index');
+        $data['page'] = "Obat - Derma Clinic";
+        $data['listobat'] = $this->m_admin->getobat();
+        $this->load->view('obat_index',$data);
     }
 
     /* Fungsi tambah obat*/
     function tambahobat(){
+        $kodebarang = $this->input->post('kodebarang');
+        $namabarang = $this->input->post('namabarang');
+        $jenisbarang = $this->input->post('jenisbarang');
 
+        $this->m_admin->addobat($kodebarang, $namabarang, $jenisbarang);
+        redirect('admin/obat');
     }
 
 /*-------GLOBAL TREATMENT PAGE------------------*/
     /* Fungsi halaman treatment*/
     function treatment(){
-        $this->load->view('treatment_index');
+        $data['page'] = "Treatment - Derma Clinic";
+        $data['listreatment'] = $this->m_admin->gettreatment();
+        $this->load->view('treatment_index', $data);
+    }
+
+    function tambahtreatment(){
+        $namatreatment = $this->input->post('namatreatment');
+        $kategoritreatment = $this->input->post('kategoritreatment');
+        
+        $this->m_admin->addtreatment($namatreatment, $kategoritreatment);
+        redirect('admin/treatment');
     }
 
 
 /*-------GLOBAL USER PAGE------------------*/
     /* Fungsi halaman user*/
     function user(){
-        $this->load->view('user_index');
+        $data['page'] = "User - Derma Clinic";
+        $this->load->view('user_index', $data);
     }
     
 

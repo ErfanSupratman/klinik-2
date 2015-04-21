@@ -196,7 +196,7 @@
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
         <!-- MODAL STICK UP  -->
-        <div class="modal fade stick-up" id="reg_pasien" tabindex="-1" role="dialog" aria-labelledby="reg_pasien" aria-hidden="true">
+        <div class="modal fade stick-up" id="reg_pasien" tabindex="-1" role="dialog" aria-labelledby="reg_obat" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header clearfix ">
@@ -211,13 +211,13 @@
                     <div class="col-sm-8">
                       <div class="form-group form-group-default">
                         <label>Kode Barang</label>
-                        <input name="namalengkap" type="text" class="form-control" placeholder="e.g. 123456">
+                        <input name="kodebarang" type="text" class="form-control" placeholder="e.g. 123456">
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group form-group-default">
                         <label>Jenis Obat</label>
-                        <select name="prop" class="cs-select cs-skin-slide" data-init-plugin="cs-select">
+                        <select name="jenisbarang" class="cs-select cs-skin-slide" data-init-plugin="cs-select">
                           <option value="-"> -- Pilih Jenis -- </option>
                           <option value="Cream">Cream</option>
                           <option value="Injeksi">Injeksi</option>
@@ -230,14 +230,14 @@
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
                         <label>Nama Barang</label>
-                        <input id="kotapasien" name="kota" type="text" class="form-control" placeholder="e.g. Erase eye serum">
+                        <input id="namabarang" name="namabarang" type="text" class="form-control" placeholder="e.g. Erase eye serum">
                       </div>
                     </div>    
                   </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-cons" data-dismiss="modal">Batal</button>
-                <button name="regpasien" type="submit" class="btn btn-primary  btn-cons">Tambah</button>
+                <button name="regobat" type="submit" class="btn btn-primary  btn-cons">Tambah</button>
               </div>
             </form>
             </div>
@@ -324,13 +324,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php if( !empty($listpasien )){
-                        foreach($listpasien as $listpas){?>
+                    <?php if( !empty($listobat )){
+                        foreach($listobat as $listob){?>
                     <tr class="gradeA">
-                      <td class="center"><?php echo $listpas['ALAMATPASIEN'] ?></td>
-                      <td class="center"><?php echo $listpas['KOTAPASIEN'] ?></td>
-                      <td class="center"><?php echo $listpas['HPPASIEN'] ?></td>
-                      <td><?php echo $listpas['BBMPASIEN'] ?></td>
+                      <td class="center"><?php echo $listob['IDOBAT'] ?></td>
+                      <td class="center"><?php echo $listob['KODEOBAT'] ?></td>
+                      <td class="center"><?php echo $listob['JENIS'] ?></td>
+                      <td><?php echo $listob['NAMAOBAT'] ?></td>
                         <td class="center">
                         <div class="btn-group btn-group-xs">
                         <button type="button" class="btn btn-complete"><i class="fa fa-search"></i></button>

@@ -37,6 +37,7 @@
         document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="<?php echo base_url('pages');?>/css/windows.chrome.fix.css" />'
     }
     </script>
+
     <style>
         .datepicker{z-index:10000 !important}
     </style>
@@ -85,36 +86,36 @@
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <ul class="menu-items">
           <li class="m-t-30 ">
-            <a href="<?php echo site_url();?>/admin" class="detailed">
+            <a href="#" class="detailed">
               <span class="title">PASIEN</span>
+              <span class="details">Data Lengkap Pasien</span>
             </a>
-            <span class="icon-thumbnail "><i class="fa fa-wheelchair"></i></span>
+            <span class="icon-thumbnail bg-success"><i class="fa fa-wheelchair"></i></span>
           </li>
 
           <li class="">
-            <a href="<?php echo site_url();?>/admin/rekam" class="detailed">
+            <a href="admin/rekammedik" class="detailed">
               <span class="title">REK. MEDIS</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-stethoscope"></i></span>
           </li>
 
           <li class="">
-            <a href="<?php echo site_url();?>/admin/treatment" class="detailed">
+            <a href="admin/treatment" class="detailed">
             <span class="title">TREATMENT</span>
-            <span class="details">Data Treatment</span>
             </a>
-            <span class="icon-thumbnail bg-success"><i class="fa fa-user"></i></span>
+            <span class="icon-thumbnail "><i class="fa fa-user"></i></span>
           </li>
 
           <li class="">
-            <a href="<?php echo site_url();?>/admin/obat" class="detailed">
+            <a href="admin/treatment" class="detailed">
             <span class="title">OBAT</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-medkit"></i></span>
           </li>
 
           <li class="">
-            <a href="<?php echo site_url();?>/admin/user" class="detailed">
+            <a href="admin/treatment" class="detailed">
             <span class="title">USER</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-users"></i></span>
@@ -180,7 +181,7 @@
                 <li><a href="#"><i class="pg-outdent"></i> Ubah Password</a>
                 </li>
                 <li class="bg-master-lighter">
-                  <a href="<?php echo site_url();?>/login/do_logout" class="clearfix">
+                  <a href="login/do_logout" class="clearfix">
                     <span class="pull-left">Logout</span>
                     <span class="pull-right"><i class="pg-power"></i></span>
                   </a>
@@ -191,52 +192,10 @@
           <!-- END User Info-->
         </div>
       </div>
-      <!-- END HEADER -->0
+      <!-- END HEADER -->
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
         <!-- MODAL STICK UP  -->
-        <div class="modal fade stick-up" id="reg_pasien" tabindex="-1" role="dialog" aria-labelledby="reg_pasien" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header clearfix ">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
-                </button>
-                <h4 class="p-b-5"><span class="semi-bold">Tambah</span> Treatment</h4>
-              </div>
-            <form role="form" action="<?php echo site_url();?>/admin/tambahtreatment" method="POST" name="regpasien">
-              <div class="modal-body">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Nama Treatment</label>
-                        <input name="namatreatment" type="text" class="form-control" placeholder="Nama Treatment">
-                      </div>
-                    </div>
-                  </div>
-                  
-                    <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Kategori Treatment</label>
-                        <select name="kategoritreatment" class="cs-select cs-skin-slide" data-init-plugin="cs-select">
-                          <option value="-"> -- Pilih Kategori -- </option>
-                          <option value="Body Treatment">Body Treatment</option>
-                          <option value="Face Treatment">Face Treatment</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button name="tambahtreatment" type="submit" class="btn btn-primary  btn-cons">Tambah</button>
-                <button type="button" class="btn btn-cons" data-dismiss="modal">Batal</button>
-              </div>
-            </form>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
         <!-- END MODAL STICK UP  -->
         <!-- START PAGE CONTENT -->
         <div class="content">
@@ -249,7 +208,7 @@
                   <li>
                     <p>Administrator</p>
                   </li>
-                  <li><a href="#" class="active">Daftar Treatment</a>
+                  <li><a href="#" class="active">Daftar Pasien</a>
                   </li>
                 </ul>
                 <!-- END BREADCRUMB -->
@@ -290,11 +249,11 @@
             <!-- START PANEL -->
             <div class="panel panel-transparent">
               <div class="panel-heading">
-                <div class="panel-title">Daftar Treatment
+                <div class="panel-title">Daftar Pasien
                 </div>
                 <div class="pull-right">
                   <div class="col-xs-6">
-                    <button class="btn btn-primary btn-cons" id="registpasien">Tambah Treatment</button>
+                    <button class="btn btn-primary btn-cons" id="registpasien">Registrasi</button>
                   </div>
                 </div>
                 <div class="pull-right">
@@ -308,22 +267,30 @@
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
                   <thead>
                     <tr>
-                        <th class="center" style="width:15%">ID</th>
-                        <th class="center" style="width:50%">Nama Treatment</th>
-                        <th class="center" style="width:20%">Kategori</th>
-                        <th class="center" style="width:15%">Action</th>
+                        <th class="center" style="width:2%">ID</th>
+                        <th class="center" style="width:20%">Nama Lengkap</th>
+                        <th class="center" style="width:2%">JK</th>
+                        <th class="center" style="width:45%">Alamat Asal</th>
+                        <th class="center" style="width:5%">Kota</th>
+                        <th class="center" style="width:5%">No. Handphone</th>
+                        <th class="center" style="width:5%">BBM</th>
+                        <th class="center" style="width:20%">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php if(!empty($listreatment)){
-                        foreach($listreatment as $listret){?>
+                    <?php if( !empty($listpasien )){
+                        foreach($listpasien as $listpas){?>
                     <tr class="gradeA">
-                      <td class="center"><?php echo $listret['IDTREATMENT'] ?></td>
-                      <td class="center"><?php echo $listret['NAMATREATMENT'] ?></td>
-                      <td class="center"><?php echo $listret['KATEGORITREATMENT'] ?></td>
+                      <td class="center"><?php echo $listpas['IDPASIEN'] ?></td>
+                      <td class="center"><?php echo $listpas['NAMAPASIEN'] ?></td>
+                      <td class="center"><?php echo $listpas['JENISKELAMIN'] ?></td>
+                      <td class="center"><?php echo $listpas['ALAMATPASIEN'] ?></td>
+                      <td class="center"><?php echo $listpas['KOTAPASIEN'] ?></td>
+                      <td class="center"><?php echo $listpas['HPPASIEN'] ?></td>
+                      <td><?php echo $listpas['BBMPASIEN'] ?></td>
                         <td class="center">
                         <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-complete" value="<?php echo $listret['IDTREATMENT']?>"><span><i class="fa fa-search"></i></span></button>
+                        <button type="button" class="btn btn-complete"><i class="fa fa-search"></i></button>
                         <button type="button" class="btn btn-success"><i class="fa fa-pencil"></i></button>
                         <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                         </td>

@@ -192,7 +192,7 @@
           <!-- END User Info-->
         </div>
       </div>
-      <!-- END HEADER -->0
+      <!-- END HEADER -->
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
         <!-- MODAL STICK UP  -->
