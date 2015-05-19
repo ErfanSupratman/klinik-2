@@ -114,12 +114,12 @@
             <span class="icon-thumbnail "><i class="fa fa-medkit"></i></span>
           </li>
 
-          <li class="">
-            <a href="<?php echo site_url();?>/admin/user" class="detailed">
+          <!--<li class="">
+            <a href="<?php //echo site_url();?>/admin/user" class="detailed">
             <span class="title">USER</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-users"></i></span>
-          </li>
+          </li>-->
 
         </ul>
         <div class="clearfix"></div>
@@ -192,7 +192,7 @@
           <!-- END User Info-->
         </div>
       </div>
-      <!-- END HEADER -->0
+      <!-- END HEADER -->
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
         <!-- MODAL STICK UP  -->
@@ -210,7 +210,7 @@
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
                         <label>nama lengkap</label>
-                        <input name="namalengkap" type="text" class="form-control" placeholder="Nama lengkap pasien">
+                        <input name="namalengkap" type="text" class="form-control" placeholder="Nama lengkap pasien" required>
                       </div>
                     </div>
                   </div>
@@ -233,7 +233,7 @@
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
                         <label>Alamat</label>
-                        <textarea class="form-control" id="alamatpasien" name="alamat" placeholder="contoh: Jl. Margorejo Indah 115A"></textarea>
+                        <textarea class="form-control" id="alamatpasien" name="alamat" placeholder="contoh: Jl. Margorejo Indah 115A" required></textarea>
                       </div>
                     </div>
                     </div>
@@ -297,7 +297,7 @@
                   
                     <div class="form-group form-group-default input-group col-sm-6">
                       <label>Tanggal Lahir</label>
-                      <input name="tgllahir" type="text" class="form-control datepicker" placeholder="Pilih Tanggal" id="datepicker-component2">
+                      <input name="tgllahir" type="text" class="form-control datepicker" placeholder="Pilih Tanggal" id="datepicker-component2" required>
                       <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                     </div>
                   </div>
@@ -361,7 +361,7 @@
                     <!-- START PANEL -->
                     <div class="panel panel-transparent">
                       <div class="panel-heading">
-                        <div class="panel-title">DERMA CLINIC
+                        <div class="panel-title">Cloud Node
                         </div>
                       </div>
                       <div class="panel-body">
@@ -427,8 +427,8 @@
                       <td><?php echo $listpas['BBMPASIEN'] ?></td>
                         <td class="center">
                         <div class="btn-group btn-group-xs">
-                        <a href="" class="btn btn-complete"><i class="fa fa-search"></i></a>
-                        <a class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                        <a href="<?php echo site_url().'/admin/viewpas/'.$listpas['IDPASIEN'];?>" class="btn btn-complete"><i class="fa fa-search"></i></a>
+                        <!--<a class="btn btn-success"><i class="fa fa-pencil"></i></a>-->
                         <a href="<?php echo site_url().'/admin/deletepas/'.$listpas['IDPASIEN'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>

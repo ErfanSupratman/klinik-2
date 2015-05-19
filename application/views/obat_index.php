@@ -93,7 +93,7 @@
           </li>
 
           <li class="">
-            <a href="<?php echo site_url();?>/admin/rekam?>" class="detailed">
+            <a href="<?php echo site_url();?>/admin/rekam" class="detailed">
               <span class="title">REK. MEDIS</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-stethoscope"></i></span>
@@ -211,13 +211,13 @@
                     <div class="col-sm-8">
                       <div class="form-group form-group-default">
                         <label>Kode Barang</label>
-                        <input name="kodebarang" type="text" class="form-control" placeholder="e.g. 123456">
+                        <input name="kodebarang" type="text" class="form-control" placeholder="e.g. 123456" required>
                       </div>
                     </div>
                     <div class="col-sm-4">
                       <div class="form-group form-group-default">
                         <label>Jenis Obat</label>
-                        <select name="jenisbarang" class="cs-select cs-skin-slide" data-init-plugin="cs-select">
+                        <select name="jenisbarang" class="cs-select cs-skin-slide" data-init-plugin="cs-select" required>
                           <option value="-"> -- Pilih Jenis -- </option>
                           <option value="Cream">Cream</option>
                           <option value="Injeksi">Injeksi</option>
@@ -230,7 +230,7 @@
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
                         <label>Nama Barang</label>
-                        <input id="namabarang" name="namabarang" type="text" class="form-control" placeholder="e.g. Erase eye serum">
+                        <input id="namabarang" name="namabarang" type="text" class="form-control" placeholder="e.g. Erase eye serum" required>
                       </div>
                     </div>    
                   </div>
@@ -335,7 +335,6 @@
                       <td><?php echo $listob['NAMAOBAT'] ?></td>
                         <td class="center">
                         <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-complete"><i class="fa fa-search"></i></button>
                         <button type="button" class="btn btn-success"><i class="fa fa-pencil"></i></button>
                         <a href="<?php echo site_url().'/admin/deleteob/'.$listob['IDOBAT'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></button>
                         </td>

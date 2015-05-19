@@ -88,16 +88,16 @@
           <li class="m-t-30 ">
             <a href="<?php echo site_url();?>/admin" class="detailed">
               <span class="title">PASIEN</span>
+              <span class="details">Data Lengkap Pasien</span>
             </a>
-            <span class="icon-thumbnail"><i class="fa fa-wheelchair"></i></span>
+            <span class="icon-thumbnail bg-success"><i class="fa fa-wheelchair"></i></span>
           </li>
 
           <li class="">
             <a href="<?php echo site_url();?>/admin/rekam" class="detailed">
               <span class="title">REK. MEDIS</span>
-              <span class="details">Data Rekam Medis</span>
             </a>
-            <span class="icon-thumbnail bg-success"><i class="fa fa-stethoscope"></i></span>
+            <span class="icon-thumbnail "><i class="fa fa-stethoscope"></i></span>
           </li>
 
           <li class="">
@@ -114,12 +114,12 @@
             <span class="icon-thumbnail "><i class="fa fa-medkit"></i></span>
           </li>
 
-          <!-- <li class="">
-            <a href="<?php //echo site_url();?>/admin/user" class="detailed">
+          <li class="">
+            <a href="<?php echo site_url();?>/admin/user" class="detailed">
             <span class="title">USER</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-users"></i></span>
-          </li> -->
+          </li>
 
         </ul>
         <div class="clearfix"></div>
@@ -192,24 +192,24 @@
           <!-- END User Info-->
         </div>
       </div>
-      <!-- END HEADER -->0
+      <!-- END HEADER -->
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
         <!-- MODAL STICK UP  -->
-        <div class="modal fade stick-up" id="reg_pasien" tabindex="-1" role="dialog" aria-labelledby="reg_pasien" aria-hidden="true">
+        <div class="modal fade stick-up" id="editPasien" tabindex="-1" role="dialog" aria-labelledby="editPasien" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header clearfix ">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
                 </button>
-                <h4 class="p-b-5"><span class="semi-bold">Registrasi</span> Pasien</h4>
+                <h4 class="p-b-5"><span class="semi-bold">Edit Data</span> Pasien</h4>
               </div>
             <form role="form" action="<?php echo site_url();?>/admin/registerpas" method="POST" name="regpasien">
               <div class="modal-body">
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
-                        <label>nama lengkap</label>
+                        <label>Nama Lengkap</label>
                         <input name="namalengkap" type="text" class="form-control" placeholder="Nama lengkap pasien">
                       </div>
                     </div>
@@ -330,6 +330,7 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- END MODAL STICK UP  -->
+        
         <!-- START PAGE CONTENT -->
         <div class="content">
           <!-- START JUMBOTRON -->
@@ -341,37 +342,94 @@
                   <li>
                     <p>Administrator</p>
                   </li>
-                  <li><a href="#" class="active">Rekam Medis</a>
+                  <li><a href="#" class="active">Daftar Pasien</a>
                   </li>
                 </ul>
                 <!-- END BREADCRUMB -->
                 <div class="row">
-                  <div class="col-lg-7 col-md-6 ">
-                    <!-- START PANEL -->
-                    <div class="full-height">
-                      <div class="panel-body text-center">
-                        <img class="image-responsive-height demo-mw-600" src="<?php echo base_url('assets');?>/img/demo/tables.jpg" alt="">
-                      </div>
-                    </div>
-                    <!-- END PANEL -->
+
+                  <div class="col-lg-6 col-md-6 ">
+
+                  <div class="panel panel-default hover-stroke">
+                  <div class="panel-heading">
+                        <div class="panel-title">Data Pasien
+                        </div>
                   </div>
-                  <div class="col-lg-5 col-md-6 ">
-                    <!-- START PANEL -->
-                    <div class="panel panel-transparent">
-                      <div class="panel-heading">
-                        <div class="panel-title">DERMA CLINIC
+                  <div class="panel-body">
+                  <?php foreach($detailpasien as $detpas)?>
+                  <h3><?php echo $detpas['NAMAPASIEN'];?> | <button class="btn btn-danger" data-target="#editPasien"><i class="fa fa-pencil"></i></button> </h3>
+                    <div class="container-sm-height">
+                      <div class="row row-sm-height">
+                        <div class="col-sm-4 col-sm-height padding-20 col-top">
+                          <p class="font-montserrat bold">TANGGAL LAHIR</p>
+                        </div>
+                        <div class="col-sm-8 col-sm-height col-middle bg-master-lighter">
+                        <p><?php echo $detpas['TEMPATLAHIR'];?>, <?php echo $detpas['TANGGALLAHIR'];?></p>
                         </div>
                       </div>
-                      <div class="panel-body">
-                        <h3>Medical Beauty Skin and Body Treatment</h3>
-                        <p>Derma Esthetic Centre (DEC) adalah klinik kecantikan yang berdiri sejak tahun 2006 yang berbasis medis aesthetic dengan menggunakan bahan-bahan alami (herbal) dipadukan dengan metode perawatan modern sehingga menjadikan kulit sehat, bersih dan cerah alami.</p>
-                        <p class="small hint-text m-t-5">Jl. Margorejo Indah 115A, Surabaya
-                          <br> 031 8433950 / 031 8416042</p>
-                        <br>
+
+                      <div class="row row-sm-height">
+                        <div class="col-sm-4 col-sm-height padding-20 col-top">
+                          <p class="font-montserrat bold">JENIS KELAMIN</p>
+                        </div>
+                        <div class="col-sm-8 col-sm-height col-middle bg-master-lighter">
+                        <p><?php echo $detpas['JENISKELAMIN'];?></p>
+                        </div>
                       </div>
+
                     </div>
+                  </div>
+                </div>
+                    <!-- START PANEL -->
+                    
                     <!-- END PANEL -->
                   </div>
+
+                  <div class="col-lg-6 col-md-6 ">
+
+                  <div class="panel panel-default hover-stroke">
+                  <div class="panel-heading">
+                        <div class="panel-title">Kontak
+                        </div>
+                  </div>
+                  <div class="panel-body">
+                  <?php foreach($detailpasien as $detpas)?>
+                    <div class="container-sm-height">
+                      <div class="row row-sm-height">
+                        <div class="col-sm-4 col-sm-height padding-20 col-top">
+                          <p class="font-montserrat bold">TANGGAL LAHIR</p>
+                        </div>
+                        <div class="col-sm-8 col-sm-height col-middle bg-master-lighter">
+                        <p><?php echo $detpas['TEMPATLAHIR'];?>, <?php echo $detpas['TANGGALLAHIR'];?></p>
+                        </div>
+                      </div>
+
+                      <div class="row row-sm-height">
+                        <div class="col-sm-4 col-sm-height padding-20 col-top">
+                          <p class="font-montserrat bold">ALAMAT</p>
+                        </div>
+                        <div class="col-sm-8 col-sm-height col-middle bg-master-lighter">
+                        <p><?php echo $detpas['ALAMATPASIEN'];?> - <?php echo $detpas['KOTAPASIEN'];?>, <?php echo $detpas['PROPINSIPASIEN'];?></p>
+                        </div>
+                        </div>
+
+                      <div class="row row-sm-height">
+                        <div class="col-sm-4 col-sm-height padding-20 col-top">
+                          <p class="font-montserrat bold">TELPON / BBM</p>
+                        </div>
+                        <div class="col-sm-8 col-sm-height col-middle bg-master-lighter">
+                        <p><?php echo $detpas['HPPASIEN'];?> / <b><?php echo $detpas['BBMPASIEN'];?></b></p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                    <!-- START PANEL -->
+                    
+                    <!-- END PANEL -->
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -384,11 +442,11 @@
               <div class="panel-heading">
                 <div class="panel-title">Rekam Medis
                 </div>
-                <!--<div class="pull-right">
+                <div class="pull-right">
                   <div class="col-xs-6">
-                    <button class="btn btn-primary btn-cons" id="registpasien">Registrasi</button>
+                    <button class="btn btn-primary btn-cons" id="">Tambah</button>
                   </div>
-                </div>-->
+                </div>
                 <div class="pull-right">
                   <div class="col-xs-12">
                     <input type="text" id="search-table" class="form-control pull-right" placeholder="Cari">
@@ -400,18 +458,24 @@
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
                   <thead>
                     <tr>
-                        <th class="center" style="width:2%">ID</th>
-                        <th class="center" style="width:20%">Nama Pasien</th>
-                        <th class="center" style="width:20%">Treatment Terakhir</th>
-                        <th class="center" style="width:5%">Jumlah Treatment</th>
-                        <th class="center" style="width:5%">Jumlah Obat</th>
-                        <th class="center" style="width:5%">Action</th>
+                        <th class="center" style="width:2%">No</th>
+                        <th class="center" style="width:20%">Nama Lengkap</th>
+                        <th class="center" style="width:2%">JK</th>
+                        <th class="center" style="width:45%">Alamat Asal</th>
+                        <th class="center" style="width:5%">Kota</th>
+                        <th class="center" style="width:5%">No. Handphone</th>
+                        <th class="center" style="width:5%">BBM</th>
+                        <th class="center" style="width:20%">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php if( !empty($listpasien )){
+                      $i = 0;
                         foreach($listpasien as $listpas){?>
+                        <?php $i=$i+1?>
                     <tr class="gradeA">
+                      <td class="center"><?php echo $i; ?></td>
+                      <td class="center"><?php echo $listpas['NAMAPASIEN'] ?></td>
                       <td class="center"><?php echo $listpas['JENISKELAMIN'] ?></td>
                       <td class="center"><?php echo $listpas['ALAMATPASIEN'] ?></td>
                       <td class="center"><?php echo $listpas['KOTAPASIEN'] ?></td>
@@ -419,9 +483,9 @@
                       <td><?php echo $listpas['BBMPASIEN'] ?></td>
                         <td class="center">
                         <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-complete"><i class="fa fa-search"></i></button>
-                        <button type="button" class="btn btn-success"><i class="fa fa-pencil"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                        <a href="" class="btn btn-complete"><i class="fa fa-search"></i></a>
+                        <!--<a class="btn btn-success"><i class="fa fa-pencil"></i></a>-->
+                        <a href="<?php echo site_url().'/admin/deletepas/'.$listpas['IDPASIEN'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>
                     <?php } }
@@ -459,6 +523,17 @@
     </div>
     <!-- END PAGE CONTAINER -->
       
+
+      <!--SCRIPT-->
+      <script>
+      function delconfirm(){
+        job=confirm("Apakah anda yakin ingin menghapus data ini?");
+        if(job!=true){
+          return false;
+        }
+      }
+      </script>
+      <!--SCRIPT-->
     
     <!-- BEGIN VENDOR JS -->
     <script src="<?php echo base_url('assets');?>/plugins/pace/pace.min.js" type="text/javascript"></script>

@@ -41,6 +41,16 @@ class Admin extends CI_Controller {
         redirect('admin');
     }
 
+    function editpass($id){
+        $this->m_admin->editpas($id, $nama, $gender, $alamat, $kota, $prop, $tlahir, $tgllahir, $hp, $bbm);
+        redirect('viewpas',$id);
+    }
+
+    function viewpas($id){
+        $data['detailpasien'] = $this->m_admin->vipas($id);
+        $this->load->view('admin_detail', $data);
+    }
+
 /*-------GLOBAL REKAM PAGE------------------*/
     /* Fungsi halaman rekam*/
     function rekam(){
@@ -85,6 +95,11 @@ class Admin extends CI_Controller {
         $kategoritreatment = $this->input->post('kategoritreatment');
         
         $this->m_admin->addtreatment($namatreatment, $kategoritreatment);
+        redirect('admin/treatment');
+    }
+
+    function deletetreatment($id){
+        $this->m_admin->deltreat($id);
         redirect('admin/treatment');
     }
 

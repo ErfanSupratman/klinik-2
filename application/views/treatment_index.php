@@ -308,7 +308,7 @@
                 <table class="table table-hover demo-table-search" id="tableWithSearch">
                   <thead>
                     <tr>
-                        <th class="center" style="width:15%">ID</th>
+                        <th class="center" style="width:15%">No</th>
                         <th class="center" style="width:50%">Nama Treatment</th>
                         <th class="center" style="width:20%">Kategori</th>
                         <th class="center" style="width:15%">Action</th>
@@ -316,16 +316,17 @@
                   </thead>
                   <tbody>
                     <?php if(!empty($listreatment)){
+                      $i = 0;
                         foreach($listreatment as $listret){?>
+                        <?php $i=$i+1?>
                     <tr class="gradeA">
-                      <td class="center"><?php echo $listret['IDTREATMENT'] ?></td>
+                      <td class="center"><?php echo $i; ?></td>
                       <td class="center"><?php echo $listret['NAMATREATMENT'] ?></td>
                       <td class="center"><?php echo $listret['KATEGORITREATMENT'] ?></td>
                         <td class="center">
                         <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-complete" value="<?php echo $listret['IDTREATMENT']?>"><span><i class="fa fa-search"></i></span></button>
                         <button type="button" class="btn btn-success"><i class="fa fa-pencil"></i></button>
-                        <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                        <a href="<?php echo site_url().'/admin/deletetreatment/'.$listret['IDTREATMENT'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>
                     <?php } }
@@ -362,7 +363,14 @@
       <!-- END PAGE CONTENT WRAPPER -->
     </div>
     <!-- END PAGE CONTAINER -->
-      
+      <script>
+      function delconfirm(){
+        job=confirm("Apakah anda yakin ingin menghapus data ini?");
+        if(job!=true){
+          return false;
+        }
+      }
+      </script>
     
     <!-- BEGIN VENDOR JS -->
     <script src="<?php echo base_url('assets');?>/plugins/pace/pace.min.js" type="text/javascript"></script>

@@ -26,6 +26,26 @@ class M_admin extends CI_Controller {
         $this->db->delete('pasien');
     }
 
+    function vipas($id){
+        $this->db->where('IDPASIEN', $id);
+        $query = $this->db->get('pasien');
+        return $query->result_array(); 
+    }
+
+    function editpas($id, $nama, $gender, $alamat, $kota, $prop, $tlahir, $tgllahir, $hp, $bbm){
+        $this->db->where('IDPASIEN', $id);
+        $this->db->set('NAMAPASIEN', $nama);
+        $this->db->set('JENISKELAMIN', $gender);
+        $this->db->set('ALAMATPASIEN', $alamat);
+        $this->db->set('KOTAPASIEN', $kota);
+        $this->db->set('PROPINSIPASIEN', $prop);
+        $this->db->set('TEMPATLAHIR', $tlahir);
+        $this->db->set('TANGGALLAHIR', $tgllahir);
+        $this->db->set('HPPASIEN', $hp);
+        $this->db->set('BBMPASIEN', $bbm);
+        $this->db->insert('pasien');
+    }
+
 /*--OBAT MODAL--*/
     function getobat(){
         $query = $this->db->get('obat');
@@ -56,6 +76,10 @@ class M_admin extends CI_Controller {
         $this->db->set('NAMATREATMENT', $namatreatment);
         $this->db->set('KATEGORITREATMENT', $kategoritreatment);
         $this->db->insert('treatment');
+    }
+    function deltreat($id){
+        $this->db->where('IDTREATMENT', $id);
+        $this->db->delete('treatment');
     }
 
 }
