@@ -176,8 +176,8 @@
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
-                <li><a href="#"><i class="pg-settings_small"></i> Akun</a>
-                </li>
+                <!-- <li><a href="#"><i class="pg-settings_small"></i> Akun</a>
+                </li> -->
                 <li><a href="#"><i class="pg-outdent"></i> Ubah Password</a>
                 </li>
                 <li class="bg-master-lighter">

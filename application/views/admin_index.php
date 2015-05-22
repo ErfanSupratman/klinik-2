@@ -39,7 +39,7 @@
     </script>
 
     <style>
-        .datepicker{z-index:10000 !important}
+        .datepicker{z-index:+10000 !important}
     </style>
 
   </head>
@@ -176,8 +176,8 @@
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
-                <li><a href="#"><i class="pg-settings_small"></i> Akun</a>
-                </li>
+                <!-- <li><a href="#"><i class="pg-settings_small"></i> Akun</a>
+                </li> -->
                 <li><a href="#"><i class="pg-outdent"></i> Ubah Password</a>
                 </li>
                 <li class="bg-master-lighter">
@@ -222,7 +222,7 @@
                         <div class="radio radio-primary">
                           <input type="radio" value="L" name="gender" id="boy">
                             <label for="boy">Laki - laki</label>
-                            <input type="radio" checked="checked" value="P" name="gender" id="girl">
+                            <input type="radio" value="P" name="gender" id="girl">
                             <label for="girl">Perempuan</label>
                         </div>
                         </div>
@@ -361,7 +361,7 @@
                     <!-- START PANEL -->
                     <div class="panel panel-transparent">
                       <div class="panel-heading">
-                        <div class="panel-title">Cloud Node
+                        <div class="panel-title">About DEC
                         </div>
                       </div>
                       <div class="panel-body">

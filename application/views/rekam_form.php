@@ -37,6 +37,11 @@
         document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="<?php echo base_url('pages');?>/css/windows.chrome.fix.css" />'
     }
     </script>
+
+    <style>
+        .datepicker{z-index:+1 !important}
+    </style>
+
   </head>
   <body class="fixed-header">
     <!-- BEGIN SIDEBPANEL-->
@@ -83,8 +88,9 @@
           <li class="m-t-30 ">
             <a href="<?php echo site_url();?>/admin" class="detailed">
               <span class="title">PASIEN</span>
+              <span class="details">Data Lengkap Pasien</span>
             </a>
-            <span class="icon-thumbnail "><i class="fa fa-wheelchair"></i></span>
+            <span class="icon-thumbnail bg-success"><i class="fa fa-wheelchair"></i></span>
           </li>
 
           <li class="">
@@ -97,9 +103,8 @@
           <li class="">
             <a href="<?php echo site_url();?>/admin/treatment" class="detailed">
             <span class="title">TREATMENT</span>
-            <span class="details">Data Treatment</span>
             </a>
-            <span class="icon-thumbnail bg-success"><i class="fa fa-user"></i></span>
+            <span class="icon-thumbnail "><i class="fa fa-user"></i></span>
           </li>
 
           <li class="">
@@ -109,12 +114,12 @@
             <span class="icon-thumbnail "><i class="fa fa-medkit"></i></span>
           </li>
 
-          <!--<li class="">
+          <!-- <li class="">
             <a href="<?php //echo site_url();?>/admin/user" class="detailed">
             <span class="title">USER</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-users"></i></span>
-          </li>-->
+          </li> -->
 
         </ul>
         <div class="clearfix"></div>
@@ -187,164 +192,87 @@
           <!-- END User Info-->
         </div>
       </div>
-      <!-- END HEADER -->0
+      <!-- END HEADER -->
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
         <!-- MODAL STICK UP  -->
-        <div class="modal fade stick-up" id="reg_pasien" tabindex="-1" role="dialog" aria-labelledby="reg_pasien" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header clearfix ">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
-                </button>
-                <h4 class="p-b-5"><span class="semi-bold">Tambah</span> Treatment</h4>
-              </div>
-            <form role="form" action="<?php echo site_url();?>/admin/tambahtreatment" method="POST" name="regpasien">
-              <div class="modal-body">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Nama Treatment</label>
-                        <input name="namatreatment" type="text" class="form-control" placeholder="Nama Treatment" required>
-                      </div>
-                    </div>
-                  </div>
-                  
-                    <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Kategori Treatment</label>
-                        <select name="kategoritreatment" class="cs-select cs-skin-slide" data-init-plugin="cs-select">
-                          <option value="-"> -- Pilih Kategori -- </option>
-                          <option value="Body Treatment">Body Treatment</option>
-                          <option value="Face Treatment">Face Treatment</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button name="tambahtreatment" type="submit" class="btn btn-primary  btn-cons">Tambah</button>
-                <button type="button" class="btn btn-cons" data-dismiss="modal">Batal</button>
-              </div>
-            </form>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- END MODAL STICK UP  -->
-        <!-- START PAGE CONTENT -->
         <div class="content">
-          <!-- START JUMBOTRON -->
-          <div class="jumbotron" data-pages="parallax">
-            <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
-              <div class="inner">
-                <!-- START BREADCRUMB -->
-                <ul class="breadcrumb">
-                  <li>
-                    <p>Administrator</p>
-                  </li>
-                  <li><a href="#" class="active">Daftar Treatment</a>
-                  </li>
-                </ul>
-                <!-- END BREADCRUMB -->
-                <div class="row">
-                  <div class="col-lg-7 col-md-6 ">
-                    <!-- START PANEL -->
-                    <div class="full-height">
-                      <div class="panel-body text-center">
-                        <img class="image-responsive-height demo-mw-600" src="<?php echo base_url('assets');?>/img/demo/tables.jpg" alt="">
-                      </div>
-                    </div>
-                    <!-- END PANEL -->
-                  </div>
-                  <div class="col-lg-5 col-md-6 ">
-                    <!-- START PANEL -->
-                    <div class="panel panel-transparent">
-                      <div class="panel-heading">
-                        <div class="panel-title">DERMA CLINIC
-                        </div>
-                      </div>
-                      <div class="panel-body">
-                        <h3>Medical Beauty Skin and Body Treatment</h3>
-                        <p>Derma Esthetic Centre (DEC) adalah klinik kecantikan yang berdiri sejak tahun 2006 yang berbasis medis aesthetic dengan menggunakan bahan-bahan alami (herbal) dipadukan dengan metode perawatan modern sehingga menjadikan kulit sehat, bersih dan cerah alami.</p>
-                        <p class="small hint-text m-t-5">Jl. Margorejo Indah 115A, Surabaya
-                          <br> 031 8433950 / 031 8416042</p>
-                        <br>
-                      </div>
-                    </div>
-                    <!-- END PANEL -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- END JUMBOTRON -->
-          <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg bg-white">
+        
+        <div class="panel-heading">
+            <div class="panel-title"></div>
+        </div>
+
+        <div class="container-fluid container-fixed-lg">
             <!-- START PANEL -->
-            <div class="panel panel-transparent">
+            <div class="panel panel-default">
               <div class="panel-heading">
-                <div class="panel-title">Daftar Treatment
+                <div class="panel-title">Form Rekam Medis
                 </div>
-                <div class="pull-right">
-                  <div class="col-xs-6">
-                    <button class="btn btn-primary btn-cons" id="registpasien">Tambah Treatment</button>
-                  </div>
-                </div>
-                <div class="pull-right">
-                  <div class="col-xs-12">
-                    <input type="text" id="search-table" class="form-control pull-right" placeholder="Cari">
-                  </div>
-                </div>
-                <div class="clearfix"></div>
               </div>
               <div class="panel-body">
-                <table class="table table-hover demo-table-search" id="tableWithSearch">
-                  <thead>
-                    <tr>
-                        <th class="center" style="width:15%">No</th>
-                        <th class="center" style="width:50%">Nama Treatment</th>
-                        <th class="center" style="width:20%">Kategori</th>
-                        <th class="center" style="width:5%">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php if(!empty($listreatment)){
-                      $i = 0;
-                        foreach($listreatment as $listret){?>
-                        <?php $i=$i+1?>
-                    <tr class="gradeA">
-                      <td class="center"><?php echo $i; ?></td>
-                      <td class="center"><?php echo $listret['NAMATREATMENT'] ?></td>
-                      <td class="center"><?php echo $listret['KATEGORITREATMENT'] ?></td>
-                        <td class="center">
-                        <div class="btn-group btn-group-xs">
-                        <!-- <button type="button" class="btn btn-success"><i class="fa fa-pencil"></i></button> -->
-                        <a href="<?php echo site_url().'/admin/deletetreatment/'.$listret['IDTREATMENT'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></a>
-                        </td>
-                    </tr>
-                    <?php } }
-                      ?>
-                  </tbody>
-                </table>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h5>Data <span class="semi-bold">Treatment</span></h5>
+                    <p>Pilihlah Treatment yang diberikan kepada pasien</p>
+                    <br>
+                    <div class="checkbox ">
+                      <input type="checkbox" value="1" id="checkbox1">
+                      <label for="checkbox1">Keep Me Signed in</label>
+                    </div>
+                    <div class="checkbox check-success  ">
+                      <input type="checkbox" checked="checked" value="1" id="checkbox2">
+                      <label for="checkbox2">I agree</label>
+                    </div>
+                    <div class="checkbox check-primary">
+                      <input type="checkbox" value="1" id="checkbox3">
+                      <label for="checkbox3">Mark</label>
+                    </div>
+                    <div class="checkbox check-info">
+                      <input type="checkbox" value="1" id="checkbox4">
+                      <label for="checkbox4">Steve Jobs</label>
+                    </div>
+                    <div class="checkbox check-warning">
+                      <input type="checkbox" checked="checked" value="1" id="checkbox5">
+                      <label for="checkbox5">Action</label>
+                    </div>
+                    <div class="checkbox check-danger">
+                      <input type="checkbox" checked="checked" value="1" id="checkbox6">
+                      <label for="checkbox6">Mark as read</label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <h5>Data <span class="semi-bold">Obat</span></h5>
+                    <p>Pilihlah obat yang diberikan kepada pasien</p>
+                    <br>
+                    <div class="checkbox  checkbox-circle">
+                      <input type="checkbox" checked="checked" value="1" id="checkbox7">
+                      <label for="checkbox7">Keep Me Signed in</label>
+                    </div>
+                    <div class="checkbox check-success checkbox-circle">
+                      <input type="checkbox" value="1" id="checkbox8">
+                      <label for="checkbox8">I agree</label>
+                    </div>
+                    <div class="checkbox check-primary checkbox-circle">
+                      <input type="checkbox" checked="checked" value="1" id="checkbox9">
+                      <label for="checkbox9">Mark</label>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- END PANEL -->
           </div>
           <!-- END CONTAINER FLUID -->
-          
-        </div>
-        <!-- END PAGE CONTENT -->
 
-        <!-- START COPYRIGHT -->
-        <!-- START CONTAINER FLUID -->
-        <div class="container-fluid container-fixed-lg footer">
+        <!--CONTENT GOES HERE-->
+
+        </div>
+      <div class="container-fluid container-fixed-lg footer">
           <div class="copyright sm-text-center">
             <p class="small no-margin pull-left sm-pull-reset">
               <span class="hint-text">Copyright © 2015 </span>
-              <span class="font-montserrat">Derma Clinic</span>.
+              <span class="font-montserrat">Derma Clinic</span>
               <span class="hint-text">All rights reserved. </span> 
             </p>
 
@@ -359,14 +287,6 @@
       <!-- END PAGE CONTENT WRAPPER -->
     </div>
     <!-- END PAGE CONTAINER -->
-      <script>
-      function delconfirm(){
-        job=confirm("Apakah anda yakin ingin menghapus data ini?");
-        if(job!=true){
-          return false;
-        }
-      }
-      </script>
     
     <!-- BEGIN VENDOR JS -->
     <script src="<?php echo base_url('assets');?>/plugins/pace/pace.min.js" type="text/javascript"></script>

@@ -176,8 +176,8 @@
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
-                <li><a href="#"><i class="pg-settings_small"></i> Akun</a>
-                </li>
+                <!-- <li><a href="#"><i class="pg-settings_small"></i> Akun</a>
+                </li> -->
                 <li><a href="#"><i class="pg-outdent"></i> Ubah Password</a>
                 </li>
                 <li class="bg-master-lighter">
@@ -211,7 +211,7 @@
                     <div class="col-sm-8">
                       <div class="form-group form-group-default">
                         <label>Kode Barang</label>
-                        <input name="kodebarang" type="text" class="form-control" placeholder="e.g. 123456" required>
+                        <input name="kodebarang" type="text" class="form-control" placeholder="e.g. 123456">
                       </div>
                     </div>
                     <div class="col-sm-4">
@@ -320,7 +320,7 @@
                         <th class="center" style="width:10%">Kode Barang</th>
                         <th class="center" style="width:15%">Jenis</th>
                         <th class="center" style="width:45%">Nama Barang</th>
-                        <th class="center" style="width:10%">Action</th>
+                        <th class="center" style="width:5%">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -335,7 +335,7 @@
                       <td><?php echo $listob['NAMAOBAT'] ?></td>
                         <td class="center">
                         <div class="btn-group btn-group-xs">
-                        <button type="button" class="btn btn-success"><i class="fa fa-pencil"></i></button>
+                        <!-- <button type="button" class="btn btn-success"><i class="fa fa-pencil"></i></button> -->
                         <a href="<?php echo site_url().'/admin/deleteob/'.$listob['IDOBAT'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></button>
                         </td>
                     </tr>

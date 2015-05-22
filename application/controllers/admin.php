@@ -19,6 +19,13 @@ class Admin extends CI_Controller {
         $this->load->view('admin_index',$data);
     }
 
+    function showformpassword($id){
+        $this->load->view('template');
+    }
+
+    function updatepassword($id){
+
+    }
     /*fungsi registrasi pasien*/
     function registerpas(){
         $nama = $this->input->post('namalengkap');
@@ -41,12 +48,26 @@ class Admin extends CI_Controller {
         redirect('admin');
     }
 
-    function editpass($id){
-        $this->m_admin->editpas($id, $nama, $gender, $alamat, $kota, $prop, $tlahir, $tgllahir, $hp, $bbm);
-        redirect('viewpas',$id);
+    function editpass(){
+        $id= $this->input->post('did');
+        $data = array(
+        'NAMAPASIEN' => $this->input->post('namalengkap'),
+        'JENISKELAMIN' => $this->input->post('gender'),
+        'ALAMATPASIEN' => $this->input->post('alamat'),
+        'KOTAPASIEN' => $this->input->post('kota'),
+        'PROPINSIPASIEN' => $this->input->post('prop'),
+        'TEMPATLAHIR' => $this->input->post('tlahir'),
+        'TANGGALLAHIR' => $this->input->post('tgllahir'),
+        'HPPASIEN' => $this->input->post('hp'),
+        'BBMPASIEN' => $this->input->post('bbm')
+        );
+
+        $this->m_admin->editpas($id, $data);
+        $this->viewpas($id);
     }
 
     function viewpas($id){
+        $data['page'] = "Detail - Derma Clinic";
         $data['detailpasien'] = $this->m_admin->vipas($id);
         $this->load->view('admin_detail', $data);
     }
@@ -58,6 +79,19 @@ class Admin extends CI_Controller {
         $this->load->view('rekam_index', $data);
     }
 
+    function addrekam($id){
+
+    }
+
+    function loadrekam(){
+
+    }
+
+    function loadformrekam($id){
+        $data['listobat'] = $this->m_admin->getobat();
+        $data['listtreatment'] = $this->m_admin->gettreatment();
+        $this->load->view('rekam_form', $data);
+    }
 
 /*-------GLOBAL OBAT PAGE------------------*/
     /* Fungsi halaman obat*/

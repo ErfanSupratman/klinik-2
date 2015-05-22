@@ -32,18 +32,9 @@ class M_admin extends CI_Controller {
         return $query->result_array(); 
     }
 
-    function editpas($id, $nama, $gender, $alamat, $kota, $prop, $tlahir, $tgllahir, $hp, $bbm){
-        $this->db->where('IDPASIEN', $id);
-        $this->db->set('NAMAPASIEN', $nama);
-        $this->db->set('JENISKELAMIN', $gender);
-        $this->db->set('ALAMATPASIEN', $alamat);
-        $this->db->set('KOTAPASIEN', $kota);
-        $this->db->set('PROPINSIPASIEN', $prop);
-        $this->db->set('TEMPATLAHIR', $tlahir);
-        $this->db->set('TANGGALLAHIR', $tgllahir);
-        $this->db->set('HPPASIEN', $hp);
-        $this->db->set('BBMPASIEN', $bbm);
-        $this->db->insert('pasien');
+    function editpas($id, $data){
+        $this->db->where('IDPASIEN',$id);
+        $this->db->update('pasien',$data);
     }
 
 /*--OBAT MODAL--*/
@@ -80,6 +71,12 @@ class M_admin extends CI_Controller {
     function deltreat($id){
         $this->db->where('IDTREATMENT', $id);
         $this->db->delete('treatment');
+    }
+
+    function loadrekam(){
+        $this->db->where('IDX', $id);
+        return $query->result_array();
+
     }
 
 }

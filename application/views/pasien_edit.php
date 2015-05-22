@@ -39,7 +39,7 @@
     </script>
 
     <style>
-        .datepicker{z-index:+10000 !important}
+        .datepicker{z-index:+1 !important}
     </style>
 
   </head>
@@ -176,8 +176,8 @@
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
-                <!--<li><a href="#"><i class="pg-settings_small"></i> Akun</a>
-                </li>-->
+                <!-- <li><a href="#"><i class="pg-settings_small"></i> Akun</a>
+                </li> -->
                 <li><a href="#"><i class="pg-outdent"></i> Ubah Password</a>
                 </li>
                 <li class="bg-master-lighter">
@@ -196,23 +196,21 @@
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
         <!-- MODAL STICK UP  -->
-        <div class="modal fade stick-up" id="reg_pasien" tabindex="-1" role="dialog" aria-labelledby="reg_pasien" aria-hidden="true">
+        <div class="modal fade stick-up" id="editPasien" tabindex="-1" role="dialog" aria-labelledby="editPasien" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header clearfix ">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
                 </button>
-                <h4 class="p-b-5"><span class="semi-bold">Update</span> Pasien</h4>
+                <h4 class="p-b-5"><span class="semi-bold">Edit Data</span> Pasien</h4>
               </div>
-            <?php foreach($detailpasien as $detpas)?>
-            <form role="form" action="<?php echo site_url();?>/admin/editpass" method="POST" name="regpasien">
-            <input type="text" name="did" value="<?php echo $detpas['IDPASIEN'];?>" hidden>
+            <form role="form" action="<?php echo site_url();?>/admin/registerpas" method="POST" name="regpasien">
               <div class="modal-body">
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
-                        <label>nama lengkap</label>
-                        <input name="namalengkap" type="text" class="form-control" value="<?php echo $detpas['NAMAPASIEN'];?>" required>
+                        <label>Nama Lengkap</label>
+                        <input name="namalengkap" type="text" class="form-control" placeholder="Nama lengkap pasien">
                       </div>
                     </div>
                   </div>
@@ -224,7 +222,7 @@
                         <div class="radio radio-primary">
                           <input type="radio" value="L" name="gender" id="boy">
                             <label for="boy">Laki - laki</label>
-                            <input type="radio" value="P" name="gender" id="girl">
+                            <input type="radio" checked="checked" value="P" name="gender" id="girl">
                             <label for="girl">Perempuan</label>
                         </div>
                         </div>
@@ -235,7 +233,7 @@
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
                         <label>Alamat</label>
-                        <input value="<?php echo $detpas['ALAMATPASIEN'];?>" class="form-control" id="alamatpasien" name="alamat" required>
+                        <textarea class="form-control" id="alamatpasien" name="alamat" placeholder="contoh: Jl. Margorejo Indah 115A"></textarea>
                       </div>
                     </div>
                     </div>
@@ -244,7 +242,7 @@
                     <div class="col-sm-6">
                       <div class="form-group form-group-default">
                         <label>Kota</label>
-                        <input id="kotapasien" name="kota" type="text" class="form-control" value="<?php echo $detpas['KOTAPASIEN'] ?>">
+                        <input id="kotapasien" name="kota" type="text" class="form-control" placeholder="e.g. Surabaya">
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -293,13 +291,13 @@
                     <div class="col-sm-6">
                       <div class="form-group form-group-default">
                         <label>Tempat Lahir</label>
-                        <input name="tlahir" type="text" class="form-control" value="<?php echo $detpas['TEMPATLAHIR'];?>">
+                        <input name="tlahir" type="text" class="form-control" placeholder="e.g. Surabaya">
                       </div>
                     </div>
                   
                     <div class="form-group form-group-default input-group col-sm-6">
                       <label>Tanggal Lahir</label>
-                      <input name="tgllahir" type="text" class="form-control datepicker" value="<?php echo $detpas['TANGGALLAHIR'];?>" id="datepicker-component2" required>
+                      <input name="tgllahir" type="text" class="form-control datepicker" placeholder="Pilih Tanggal" id="datepicker-component2">
                       <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                     </div>
                   </div>
@@ -308,21 +306,21 @@
                   <div class="col-sm-6">
                       <div class="form-group form-group-default input-group">
                         <label>No Handphone</label>
-                        <input name="hp" type="text" class="form-control" value="<?php echo $detpas['HPPASIEN'];?>">
+                        <input name="hp" type="text" class="form-control" placeholder="e.g. 085212345678">
                         <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                       </div>
                       </div>
                   
                     <div class="form-group form-group-default input-group col-sm-6">
                       <label>Pin BBM</label>
-                      <input name="bbm" type="text" class="form-control" value="<?php echo $detpas['BBMPASIEN'];?>">
+                      <input name="bbm" type="text" class="form-control" placeholder="e.g. 52C732F">
                       <span class="input-group-addon"><i class="fa fa-comment-o"></i></span>
                     </div>
                   </div>
 
               </div>
               <div class="modal-footer">
-                <button name="regpasien" type="submit" class="btn btn-primary  btn-cons">Update</button>
+                <button name="regpasien" type="submit" class="btn btn-primary  btn-cons">Registrasi</button>
                 <button type="button" class="btn btn-cons" data-dismiss="modal">Batal</button>
               </div>
             </form>
@@ -359,7 +357,7 @@
                   </div>
                   <div class="panel-body">
                   <?php foreach($detailpasien as $detpas)?>
-                  <h3><?php echo $detpas['NAMAPASIEN'];?> | <button class="btn btn-danger" id="registpasien"><span><i class="fa fa-pencil"></i></span></button></h3>
+                  <h3><?php echo $detpas['NAMAPASIEN'];?> | <button class="btn btn-danger" data-target="#editPasien"><i class="fa fa-pencil"></i></button> </h3>
                     <div class="container-sm-height">
                       <div class="row row-sm-height">
                         <div class="col-sm-4 col-sm-height padding-20 col-top">
@@ -446,7 +444,7 @@
                 </div>
                 <div class="pull-right">
                   <div class="col-xs-6">
-                    <a href="<?php echo site_url()?>/admin/loadformrekam/<?php echo $detpas['IDPASIEN'];?>" class="btn btn-primary btn-cons" id="">Tambah</a>
+                    <button class="btn btn-primary btn-cons" id="">Tambah</button>
                   </div>
                 </div>
                 <div class="pull-right">
