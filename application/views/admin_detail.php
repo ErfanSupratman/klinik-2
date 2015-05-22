@@ -461,30 +461,26 @@
                   <thead>
                     <tr>
                         <th class="center" style="width:2%">No</th>
-                        <th class="center" style="width:45%">Nama Treatment</th>
-                        <th class="center" style="width:15%">BO</th>
-                        <th class="center" style="width:5%">Keterangan</th>
-                        <th class="center" style="width:20%">Action</th>
+                        <th class="center" style="width:20%">Tanggal</th>
+                        <th class="center" style="width:35%">Treatment</th>
+                        <th class="center" style="width:35%">Obat</th>
+                        <!-- <th class="center" style="width:20%">Action</th> -->
                     </tr>
                   </thead>
                   <tbody>
-                    <?php if( !empty($listpasien )){
-                      $i = 0;
-                        foreach($listpasien as $listpas){?>
-                        <?php $i=$i+1?>
-                    <tr class="gradeA">
-                      <td class="center"><?php echo $i; ?></td>
-                      <td class="center"><?php echo $listpas['NAMAPASIEN'] ?></td>
-                      <td class="center"><?php echo $listpas['JENISKELAMIN'] ?></td>
+                    <?php echo $detailrekam;?>
+                    <!-- <tr class="gradeA">
+                      <td class="center"><?php //echo $i; ?></td>
+                      <td class="center"><?php //echo $listpas['TANGGAL'] ?></td>
+                      <td class="center"><?php //echo $listpas['JENISKELAMIN'] ?></td>
                         <td class="center">
                         <div class="btn-group btn-group-xs">
                         <a href="" class="btn btn-complete"><i class="fa fa-search"></i></a>
-                        <!--<a class="btn btn-success"><i class="fa fa-pencil"></i></a>-->
-                        <a href="<?php echo site_url().'/admin/deletepas/'.$listpas['IDPASIEN'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></a>
+                        <a class="btn btn-success"><i class="fa fa-pencil"></i></a>
+                        <a href="<?php //echo site_url().'/admin/deletepas/'.$listpas['IDPASIEN'];?>" class="btn btn-danger" onClick="return delconfirm();"><i class="fa fa-trash-o"></i></a>
                         </td>
-                    </tr>
-                    <?php } }
-                      ?>
+                    </tr> -->
+                    
                   </tbody>
                 </table>
               </div>

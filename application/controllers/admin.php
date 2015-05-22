@@ -68,8 +68,30 @@ class Admin extends CI_Controller {
 
     function viewpas($id){
         $data['page'] = "Detail - Derma Clinic";
+        $data['detailrekam'] = $this->viewrekamperuser($id);
         $data['detailpasien'] = $this->m_admin->vipas($id);
         $this->load->view('admin_detail', $data);
+    }
+
+    function viewrekamperuser($id){
+        $string='';
+        $hasil = $this->m_admin->rekammedisperuser($id);
+        $i = 1;
+        foreach ($hasil->result() as $row){
+            $treatment = $this->m_admin->listtretperuser($id, $row->IDREKAM);
+            $string = $string.'<tr class="gradeA">
+                      <td class="center">'.$i.'</td>
+                      <td class="center">'.$row->TANGGALREKAM.'</td>
+                      <td class="center">';
+                      foreach ($treatment->result() as $trow){
+                        $string = $string.$trow->NAMATREATMENT.', ';
+                      }
+            $string = $string.'</td>
+                      <td class="center">'.$i.'</td>
+                    </tr>';
+                    $i++;
+        }
+        return $string;
     }
 
 /*-------GLOBAL REKAM PAGE------------------*/
@@ -79,8 +101,9 @@ class Admin extends CI_Controller {
         $this->load->view('rekam_index', $data);
     }
 
-    function addrekam($id){
-
+    function inputrekam(){
+        $this->m_admin->tambahrekam();
+        redirect('/admin');
     }
 
     function loadrekam(){
@@ -88,8 +111,9 @@ class Admin extends CI_Controller {
     }
 
     function loadformrekam($id){
-        $data['listobat'] = $this->m_admin->getobat();
-        $data['listtreatment'] = $this->m_admin->gettreatment();
+        $data['listobat'] = $this->loadobat();
+        $data['listtreatment'] = $this->loadtreatment();
+        $data['namauser'] = $this->m_admin->getuserbyid($id);
         $this->load->view('rekam_form', $data);
     }
 
@@ -116,6 +140,20 @@ class Admin extends CI_Controller {
         redirect('admin/obat');
     }
 
+    function loadobat(){
+        $tretque = $this->m_admin->loadobatquery();
+        $string = '';
+        foreach ($tretque->result() as $row){
+            $string = $string.'<div class="checkbox check-success checkbox-circle">
+                    <input type="checkbox" name="obatobat[]" value="'.$row->IDOBAT.'" id="'.$row->NAMAOBAT.'">
+                    <label for="'.$row->NAMAOBAT.'">'.$row->NAMAOBAT.'</label>
+                    </div>';
+        }
+        return $string;
+
+
+    }
+
 /*-------GLOBAL TREATMENT PAGE------------------*/
     /* Fungsi halaman treatment*/
     function treatment(){
@@ -135,6 +173,18 @@ class Admin extends CI_Controller {
     function deletetreatment($id){
         $this->m_admin->deltreat($id);
         redirect('admin/treatment');
+    }
+
+    function loadtreatment(){
+        $tretque = $this->m_admin->loadtreatmentquery();
+        $string = '';
+        foreach ($tretque->result() as $row){
+            $string = $string.'<div class="checkbox check-success checkbox-circle">
+                    <input type="checkbox" name="trettret[]" value="'.$row->IDTREATMENT.'" id="'.$row->NAMATREATMENT.'">
+                    <label for="'.$row->NAMATREATMENT.'">'.$row->NAMATREATMENT.'</label>
+                    </div>';
+        }
+        return $string;
     }
 
 

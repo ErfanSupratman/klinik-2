@@ -1,11 +1,19 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class M_admin extends CI_Controller {
+class M_admin extends CI_Model {
     
     /*---PASIEN MODAL---*/
     function getpasien(){
         $query = $this->db->get('pasien');
         return $query->result_array();
+    }
+
+    function getuserbyid($id){
+        $data = array(
+            'IDPASIEN =' => $id);
+        $this->db->where($data);
+        $query = $this->db->get('pasien');
+        return $query->row();
     }
     
     function addpasien($nama, $gender, $alamat, $kota, $prop, $tlahir, $tgllahir, $hp, $bbm){
@@ -56,11 +64,21 @@ class M_admin extends CI_Controller {
         $this->db->delete('obat');
     }
 
+    function loadobatquery(){
+       $query = $this->db->get('obat');
+        return $query;
+    }
+
 
 /*---TREATMENT MODAL--*/
     function gettreatment(){
         $query = $this->db->get('treatment');
         return $query->result_array();
+    }
+
+    function loadtreatmentquery(){
+       $query = $this->db->get('treatment');
+        return $query;
     }
 
     function addtreatment($namatreatment, $kategoritreatment){
@@ -79,6 +97,63 @@ class M_admin extends CI_Controller {
 
     }
 
-}
+    function tambahrekam()
+    {
+        $namapasien = $this->input->post('namapassien');
+        $tanggal = date("Y-m-d");
+        $idpasien = $this->input->post('idpasien');
+        $data1 = array(
+            'IDPASIEN' => $idpasien,
+            'TANGGALREKAM' => $tanggal);
+        $this->db->insert('rekammedis', $data1);
+        $arr = array(
+            'TANGGALREKAM =' => $tanggal,
+            'IDPASIEN =' => $idpasien
+            );
 
+        $this->db->where($arr);
+        $que = $this->db->get('rekammedis');
+        $row = $que->row();
+        $rekamid = $row->IDREKAM;
+
+    foreach($this->input->post('obatobat') as $obat){
+        $data2 = array(
+            'IDREKAM' => $rekamid,
+            'TANGGAL' => $tanggal,
+            'IDOBAT' => $obat);
+
+        $this->db->insert('rm_obat', $data2);
+    }
+
+    foreach($this->input->post('trettret') as $tret){
+        $data3 = array(
+            'IDREKAM' => $rekamid,
+            'TANGGAL' => $tanggal,
+            'IDTREATMENT' => $tret);
+
+        $this->db->insert('rm_treatment', $data3);
+
+        }
+    }
+
+    function loadrekamperuser($id){
+        $string = "SELECT DISTINCT * FROM rekammedis  join pasien on pasien.IDPASIEN=rekammedis.IDPASIEN join rm_treatment on rm_treatment.IDREKAM=rekammedis.IDREKAM join treatment on treatment.IDTREATMENT=rm_treatment.IDTREATMENT
+join rm_obat on rm_obat.IDREKAM=rekammedis.IDREKAM join obat on rm_obat.IDOBAT=obat.IDOBAT
+where pasien.IDPASIEN=".$id;
+    $query = $this->db->query($string);
+    return $query;
+    }
+
+    function rekammedisperuser($id){
+        $query = $this->db->get_where('rekammedis',array('IDPASIEN' => $id));
+        return $query;
+    }
+
+    function listtretperuser($id, $idrekam){
+        $string = "SELECT rm_treatment.IDREKAM, TANGGAL, NAMATREATMENT FROM rekammedis, rm_treatment, treatment where rekammedis.IDREKAM = ".$idrekam." AND IDPASIEN =".$id." AND rm_treatment.IDTREATMENT=treatment.IDTREATMENT AND rekammedis.IDREKAM = rm_treatment.IDREKAM";
+        $query = $this->db->query($string);
+        return $query;
+    }
+
+}
 ?>

@@ -195,7 +195,6 @@
       <!-- END HEADER -->
       <!-- START PAGE CONTENT WRAPPER -->
       <div class="page-content-wrapper">
-        <!-- MODAL STICK UP  -->
         <div class="content">
         
         <div class="panel-heading">
@@ -210,63 +209,36 @@
                 </div>
               </div>
               <div class="panel-body">
+              <form class="" role="form" action="<?php echo site_url();?>/admin/inputrekam" method="POST">
+                <div class="form-group">
                 <div class="row">
+                <label>Nama Pasien</label>
+                <input type="text" class="form-control" name="namapassien" required value="<?php echo $namauser->NAMAPASIEN?>" disabled>
+                <input type="hidden" name="idpasien" value="<?php echo $namauser->IDPASIEN?>">
                   <div class="col-md-6">
                     <h5>Data <span class="semi-bold">Treatment</span></h5>
                     <p>Pilihlah Treatment yang diberikan kepada pasien</p>
                     <br>
-                    <div class="checkbox ">
-                      <input type="checkbox" value="1" id="checkbox1">
-                      <label for="checkbox1">Keep Me Signed in</label>
-                    </div>
-                    <div class="checkbox check-success  ">
-                      <input type="checkbox" checked="checked" value="1" id="checkbox2">
-                      <label for="checkbox2">I agree</label>
-                    </div>
-                    <div class="checkbox check-primary">
-                      <input type="checkbox" value="1" id="checkbox3">
-                      <label for="checkbox3">Mark</label>
-                    </div>
-                    <div class="checkbox check-info">
-                      <input type="checkbox" value="1" id="checkbox4">
-                      <label for="checkbox4">Steve Jobs</label>
-                    </div>
-                    <div class="checkbox check-warning">
-                      <input type="checkbox" checked="checked" value="1" id="checkbox5">
-                      <label for="checkbox5">Action</label>
-                    </div>
-                    <div class="checkbox check-danger">
-                      <input type="checkbox" checked="checked" value="1" id="checkbox6">
-                      <label for="checkbox6">Mark as read</label>
-                    </div>
+                    <?php echo $listtreatment ?>
                   </div>
 
                   <div class="col-md-6">
                     <h5>Data <span class="semi-bold">Obat</span></h5>
                     <p>Pilihlah obat yang diberikan kepada pasien</p>
                     <br>
-                    <div class="checkbox  checkbox-circle">
-                      <input type="checkbox" checked="checked" value="1" id="checkbox7">
-                      <label for="checkbox7">Keep Me Signed in</label>
-                    </div>
-                    <div class="checkbox check-success checkbox-circle">
-                      <input type="checkbox" value="1" id="checkbox8">
-                      <label for="checkbox8">I agree</label>
-                    </div>
-                    <div class="checkbox check-primary checkbox-circle">
-                      <input type="checkbox" checked="checked" value="1" id="checkbox9">
-                      <label for="checkbox9">Mark</label>
-                    </div>
+                    <?php echo $listobat ?>
                   </div>
                 </div>
               </div>
             </div>
             <!-- END PANEL -->
           </div>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          </form>
           <!-- END CONTAINER FLUID -->
 
-        <!--CONTENT GOES HERE-->
 
+        <!--CONTENT GOES HERE-->
         </div>
       <div class="container-fluid container-fixed-lg footer">
           <div class="copyright sm-text-center">
