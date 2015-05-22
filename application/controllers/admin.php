@@ -79,6 +79,7 @@ class Admin extends CI_Controller {
         $i = 1;
         foreach ($hasil->result() as $row){
             $treatment = $this->m_admin->listtretperuser($id, $row->IDREKAM);
+            $obats = $this->m_admin->listobperuser($id, $row->IDREKAM);
             $string = $string.'<tr class="gradeA">
                       <td class="center">'.$i.'</td>
                       <td class="center">'.$row->TANGGALREKAM.'</td>
@@ -87,7 +88,11 @@ class Admin extends CI_Controller {
                         $string = $string.$trow->NAMATREATMENT.', ';
                       }
             $string = $string.'</td>
-                      <td class="center">'.$i.'</td>
+                      <td class="center">';
+                      foreach ($obats->result() as $trows){
+                        $string = $string.$trows->NAMAOBAT.', ';
+                    }
+                    $string = $string.'</td>
                     </tr>';
                     $i++;
         }
@@ -106,9 +111,6 @@ class Admin extends CI_Controller {
         redirect('/admin');
     }
 
-    function loadrekam(){
-
-    }
 
     function loadformrekam($id){
         $data['listobat'] = $this->loadobat();

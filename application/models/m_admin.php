@@ -106,6 +106,7 @@ class M_admin extends CI_Model {
             'IDPASIEN' => $idpasien,
             'TANGGALREKAM' => $tanggal);
         $this->db->insert('rekammedis', $data1);
+
         $arr = array(
             'TANGGALREKAM =' => $tanggal,
             'IDPASIEN =' => $idpasien
@@ -151,6 +152,12 @@ where pasien.IDPASIEN=".$id;
 
     function listtretperuser($id, $idrekam){
         $string = "SELECT rm_treatment.IDREKAM, TANGGAL, NAMATREATMENT FROM rekammedis, rm_treatment, treatment where rekammedis.IDREKAM = ".$idrekam." AND IDPASIEN =".$id." AND rm_treatment.IDTREATMENT=treatment.IDTREATMENT AND rekammedis.IDREKAM = rm_treatment.IDREKAM";
+        $query = $this->db->query($string);
+        return $query;
+    }
+
+    function listobperuser($id, $idrekam){
+         $string = "SELECT rm_obat.IDREKAM, TANGGAL, NAMAOBAT FROM rekammedis, rm_obat, obat where rekammedis.IDREKAM = ".$idrekam." AND IDPASIEN =".$id." AND rm_obat.IDOBAT=obat.IDOBAT AND rekammedis.IDREKAM = rm_obat.IDREKAM";
         $query = $this->db->query($string);
         return $query;
     }

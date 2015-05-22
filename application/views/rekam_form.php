@@ -93,12 +93,12 @@
             <span class="icon-thumbnail bg-success"><i class="fa fa-wheelchair"></i></span>
           </li>
 
-          <li class="">
+          <!-- <li class="">
             <a href="<?php echo site_url();?>/admin/rekam" class="detailed">
               <span class="title">REK. MEDIS</span>
             </a>
             <span class="icon-thumbnail "><i class="fa fa-stethoscope"></i></span>
-          </li>
+          </li> -->
 
           <li class="">
             <a href="<?php echo site_url();?>/admin/treatment" class="detailed">
