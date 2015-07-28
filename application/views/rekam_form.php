@@ -205,16 +205,23 @@
             <!-- START PANEL -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                <div class="panel-title">Form Rekam Medis
+                <div class="panel-title">Nama Pasien
                 </div>
               </div>
               <div class="panel-body">
               <form class="" role="form" action="<?php echo site_url();?>/admin/inputrekam" method="POST">
                 <div class="form-group">
                 <div class="row">
-                <label>Nama Pasien</label>
+				<div class="col-md-12">
+				<div class="col-md-8">
                 <input type="text" class="form-control" name="namapassien" required value="<?php echo $namauser->NAMAPASIEN?>" disabled>
-                <input type="hidden" name="idpasien" value="<?php echo $namauser->IDPASIEN?>">
+                <input type="hidden" name="idpasien" value="<?php echo $namauser->IDPASIEN?>"></div>
+				<div class="col-md-4">
+				<button type="submit" class="btn btn-primary">Tambah</button></div>
+				</div>
+				
+				</div>
+				<div class="row">
                   <div class="col-md-6">
                     <h5>Data <span class="semi-bold">Treatment</span></h5>
                     <p>Pilihlah Treatment yang diberikan kepada pasien</p>
@@ -233,7 +240,7 @@
             </div>
             <!-- END PANEL -->
           </div>
-          <button type="submit" class="btn btn-primary">Tambah</button>
+          <!--<button type="submit" class="btn btn-primary">Tambah</button>-->
           </form>
           <!-- END CONTAINER FLUID -->
 

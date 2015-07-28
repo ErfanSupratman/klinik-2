@@ -113,6 +113,7 @@ class Admin extends CI_Controller {
 
 
     function loadformrekam($id){
+        $data['page'] = "Tambah Rekam - Derma Clinic";
         $data['listobat'] = $this->loadobat();
         $data['listtreatment'] = $this->loadtreatment();
         $data['namauser'] = $this->m_admin->getuserbyid($id);
@@ -129,11 +130,11 @@ class Admin extends CI_Controller {
 
     /* Fungsi tambah obat*/
     function tambahobat(){
-        $kodebarang = $this->input->post('kodebarang');
+        //$kodebarang = $this->input->post('kodebarang');
         $namabarang = $this->input->post('namabarang');
         $jenisbarang = $this->input->post('jenisbarang');
 
-        $this->m_admin->addobat($kodebarang, $namabarang, $jenisbarang);
+        $this->m_admin->addobat($namabarang, $jenisbarang);
         redirect('admin/obat');
     }
 

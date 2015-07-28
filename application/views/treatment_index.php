@@ -216,8 +216,17 @@
                         <label>Kategori Treatment</label>
                         <select name="kategoritreatment" class="cs-select cs-skin-slide" data-init-plugin="cs-select">
                           <option value="-"> -- Pilih Kategori -- </option>
-                          <option value="Body Treatment">Body Treatment</option>
+						  <option value="Body Treatment">Body Treatment</option>
                           <option value="Face Treatment">Face Treatment</option>
+                          <option value="Peeling Treatment">Peeling Treatment</option>
+                          <option value="Insentive Treatment">Insentive Treatment</option>
+                          <option value="Lifting Treatment">Lifting Treatment</option>
+                          <option value="Eye Treatment">Eye Treatment</option>
+                          <option value="Hand / Foot Treatment">Hand / Foot Treatment</option>
+                          <option value="Masker"> Masker </option>
+						  <option value="Meso Therapy"> Meso Therapy </option>
+						  <option value="X - Light "> X - Light </option>
+                          <option value="Lainnya">Lainnya</option>
                         </select>
                       </div>
                     </div>

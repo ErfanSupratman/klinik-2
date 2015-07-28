@@ -208,26 +208,36 @@
             <form role="form" action="<?php echo site_url();?>/admin/tambahobat" method="POST" name="regpasien">
               <div class="modal-body">
                   <div class="row">
-                    <div class="col-sm-8">
+                    <!-- <div class="col-sm-8">
                       <div class="form-group form-group-default">
                         <label>Kode Barang</label>
                         <input name="kodebarang" type="text" class="form-control" placeholder="e.g. 123456">
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-sm-4">
                       <div class="form-group form-group-default">
                         <label>Jenis Obat</label>
                         <select name="jenisbarang" class="cs-select cs-skin-slide" data-init-plugin="cs-select" required>
                           <option value="-"> -- Pilih Jenis -- </option>
-                          <option value="Cream">Cream</option>
-                          <option value="Injeksi">Injeksi</option>
+                          <option value="Cream">Cream Flek</option>
+                          <option value="Cream Whitening">Cream Whitening</option>
+                          <option value="Toner">Toner</option>
+                          <option value="Cleanser">Cleanser</option>
+                          <option value="Wash">Wash</option>
+                          <option value="Sunblock">Sunblock</option>
+                          <option value="Serum">Serum</option>
+                          <option value="Sensitif CR">Sensitif CR</option>
+                          <option value="LP">LP</option>
+                          <option value="Cream Jerawat">Cream Jerawat</option>
+                          <option value="Lotion">Lotion</option>
+                          <option value="Lainnya">Lainnya</option>
                         </select>
                     </div>
                     </div>
-                  </div>
+                  <!-- </div> -->
 
-                    <div class="row">
-                    <div class="col-sm-12">
+                    <!-- <div class="row"> -->
+                    <div class="col-sm-8">
                       <div class="form-group form-group-default">
                         <label>Nama Barang</label>
                         <input id="namabarang" name="namabarang" type="text" class="form-control" placeholder="e.g. Erase eye serum" required>
@@ -317,7 +327,7 @@
                   <thead>
                     <tr>
                         <th class="center" style="width:2%">No</th>
-                        <th class="center" style="width:10%">Kode Barang</th>
+                        <!-- <th class="center" style="width:10%">Kode Barang</th> -->
                         <th class="center" style="width:15%">Jenis</th>
                         <th class="center" style="width:45%">Nama Barang</th>
                         <th class="center" style="width:5%">Action</th>
@@ -330,7 +340,7 @@
                           $i=$i+1 ?>
                     <tr class="gradeA">
                       <td class="center"><?php echo $i ?></td>
-                      <td class="center"><?php echo $listob['KODEOBAT'] ?></td>
+                      <!-- <td class="center"><?php //echo $listob['KODEOBAT'] ?></td> -->
                       <td class="center"><?php echo $listob['JENIS'] ?></td>
                       <td><?php echo $listob['NAMAOBAT'] ?></td>
                         <td class="center">

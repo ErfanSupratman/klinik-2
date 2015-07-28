@@ -51,8 +51,8 @@ class M_admin extends CI_Model {
         return $query->result_array();
     }
 
-    function addobat($kodebarang, $namabarang, $jenisbarang){
-        $this->db->set('KODEOBAT',$kodebarang);
+    function addobat($namabarang, $jenisbarang){
+        //$this->db->set('KODEOBAT',$kodebarang);
         $this->db->set('NAMAOBAT',$namabarang);
         $this->db->set('JENIS',$jenisbarang);
         $this->db->insert('obat');
