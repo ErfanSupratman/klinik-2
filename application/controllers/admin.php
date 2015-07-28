@@ -26,6 +26,7 @@ class Admin extends CI_Controller {
     function updatepassword($id){
 
     }
+
     /*fungsi registrasi pasien*/
     function registerpas(){
         $nama = $this->input->post('namalengkap');

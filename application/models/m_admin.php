@@ -100,7 +100,9 @@ class M_admin extends CI_Model {
     function tambahrekam()
     {
         $namapasien = $this->input->post('namapassien');
-        $tanggal = date("Y-m-d");
+        $tang = $this->input->post('tglrekam');
+        $date = str_replace('/', '-', $tang);
+        $tanggal = date("Y-m-d", strtotime($date));
         $idpasien = $this->input->post('idpasien');
         $data1 = array(
             'IDPASIEN' => $idpasien,
