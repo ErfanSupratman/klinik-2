@@ -215,14 +215,11 @@
 				<div class="col-md-12">
 				<div class="col-md-8">
                 <input type="text" class="form-control" name="namapassien" required value="<?php echo $namauser->NAMAPASIEN?>" disabled>
-                <input type="hidden" name="idpasien" value="<?php echo $namauser->IDPASIEN?>">
-        </div>
-        <div class="col-md-2">
-            <input name="tglrekam" type="text" placeholder= "Tanggal Rekam" class="form-control datepicker" id="datepicker-component2">
-        </div>
-        <div class="col-md-2">
-				<button type="submit" class="btn btn-primary">Tambah</button>
-        </div>
+                <input type="hidden" name="idpasien" value="<?php echo $namauser->IDPASIEN?>"></div>
+
+                <div class="col-md-4"><button type="submit" class="btn btn-primary">Tambah</button></div>
+
+
 				</div>
 				</div>
 
